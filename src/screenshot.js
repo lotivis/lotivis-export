@@ -130,13 +130,13 @@ function svgOriginalSize(svgElement) {
 }
 
 /**
- * Initiates a download of the PNG image of the SVG with the given selector (id).
+ * Initiates a download of the PNG image of the SVG with the given id.
  *
- * @param selector The id of the SVG element to create the image of.
+ * @param id The id of the SVG element to create the image of.
  * @param filename The name of the file which is been downloaded.
  */
-export function svgDownload(selector, filename, callback) {
-  let el = element(selector);
+export function svgDownload(id, filename, callback = null) {
+  let el = element(id);
   let size = svgOriginalSize(el);
   let svgRaw = svgString(el);
 

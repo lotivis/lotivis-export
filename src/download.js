@@ -27,8 +27,8 @@ export function downloadBlob(blob, fname) {
   }
 }
 
-export function pngDownload(selector, filename, callback) {
-  html2canvas(element(selector), {
+export function pngDownload(id, filename, callback) {
+  html2canvas(element(id), {
     scale: 4,
     logging: true,
   }).then((canvas) => {
