@@ -1,13 +1,14 @@
 import * as d3 from "d3";
-import {
-  config,
-  ltv_debug,
-  runsInBrowser,
-} from "../../lotivis-charts/src/common/config.js";
+
+export function runsInBrowser() {
+  return !(typeof document === "undefined");
+}
 
 export function element(selector) {
   var el = d3.select(selector).node();
-  if (!el) throw new Error("no element for selector: " + selector);
+  if (!el) {
+    throw new Error("no element for selector: " + selector);
+  }
   return el;
 }
 
@@ -38,8 +39,16 @@ export function pngDownload(selector, filename, callback) {
 
 // dynamically load html2canvas
 (function loadHTML2Canvas(comletion = () => null) {
-  if (!runsInBrowser()) return ltv_debug("not running in browser");
-  if (typeof html2canvas !== "undefined") return;
+  if (!runsInBrowser()) {
+    return console.log(
+      "[lotivis-export] Not downloading html2canvas.js cause not running in browser."
+    );
+  }
+
+  if (typeof html2canvas !== "undefined") {
+    return;
+  }
+
   var script = document.createElement("script");
   script.onload = comletion;
   script.src = "https://html2canvas.hertzen.com/dist/html2canvas.js";
