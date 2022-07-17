@@ -22,7 +22,7 @@ function svgDownload(id, filename?, callback?)
 #### Example:
 
 ```javascript
-lotivis.svgDownload("my-id", "my-chart.svg", () => {
+lotivis.svgDownload("my-id", "my-chart{.svg}", () => {
     console.log("finished svg download");
 }).
 ```
@@ -42,7 +42,7 @@ function pngDownload(id, filename, callback)
 #### Example:
 
 ```javascript
-lotivis.pngDownload("my-id", "my-chart.png", () => {
+lotivis.pngDownload("my-id", "my-chart{.png}", () => {
     console.log("finished svg download");
 }).
 ```
