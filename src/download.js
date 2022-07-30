@@ -1,15 +1,11 @@
-import * as d3 from "d3";
-
 export function runsInBrowser() {
   return !(typeof document === "undefined");
 }
 
 export function element(selector) {
-  var el = d3.select(selector).node();
-  if (!el) {
-    throw new Error("no element for selector: " + selector);
-  }
-  return el;
+  var el2 = document.getElementById(selector);
+  if (!el2) throw new Error("no element for selector: " + selector);
+  return el2;
 }
 
 export function downloadURL(url, fname) {

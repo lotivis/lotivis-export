@@ -22,22 +22,21 @@
     <div class="ltv-container">
       <h1>lotivis-bar</h1>
       <!-- Default -->
-      <div id="bar-chart-1" style="width: 49%; display: inline-block">
+      <input type="button" onclick="screenshot('bar-chart-1')" value="bar-chart-1"></input>
+      <br>
+      <div id="bar-chart-1" >
         <!-- Bar Chart 1 Code Here -->
       </div>
       <!-- Combine -->
-      <div id="bar-chart-3" style="width: 49%; display: inline-block">
+      <input type="button" onclick="screenshot('bar-chart-3')" value="bar-chart-3"></input>
+      <br>
+      <div id="bar-chart-3" >
         <!-- Bar Chart 3 Code Here -->
-      </div>
-      <div id="bar-chart-2" style="width: 49%; display: inline-block">
-        <!-- Bar Chart 2 Code Here -->
-      </div>
-      <div id="bar-chart-4" style="width: 49%; display: inline-block">
-        <!-- Bar Chart 4 Code Here -->
       </div>
     </div>
 
-    <script src="../dist/lotivis-bar.js"></script>
+    <script src="../dist/lotivis-export.js"></script>
+    <script src="./node_modules/lotivis-bar/dist/lotivis-bar.js"></script>
     <script src="./node_modules/lotivis-data/dist/lotivis-data.js"></script>
     <script src="./node_modules/lotivis-datasets/dist/lotivis-datasets.js"></script>
 
@@ -200,17 +199,6 @@
 
       lotivis
         .bar()
-        .selector("#bar-chart-2")
-        .width(600)
-        .height(400)
-        .labels(true)
-        .title("grouped labels")
-        .colorScheme(lotivis.colorSchemeCategory10)
-        .dataController(dc)
-        .run();
-
-      lotivis
-        .bar()
         .selector("#bar-chart-3")
         .width(600)
         .height(400)
@@ -220,16 +208,12 @@
         .dataController(dc)
         .run();
 
-      lotivis
-        .bar()
-        .selector("#bar-chart-4")
-        .width(600)
-        .height(400)
-        .labels(true)
-        .style("combine")
-        .title("combine labels")
-        .dataController(dc)
-        .run();
+        function screenshot(id) {
+          console.log("id", id);
+          console.log("id", lotivis);
+
+          lotivis.pngDownload(id);
+        }
     </script>
   </body>
 </html>
