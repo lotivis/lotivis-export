@@ -1,3 +1,5 @@
+import { default as html2canvas } from "html2canvas";
+
 export function runsInBrowser() {
   return !(typeof document === "undefined");
 }
@@ -32,21 +34,3 @@ export function pngDownload(id, filename, callback) {
     if (callback) callback();
   });
 }
-
-// dynamically load html2canvas
-(function loadHTML2Canvas(comletion = () => null) {
-  if (!runsInBrowser()) {
-    return console.log(
-      "[lotivis-export] Not downloading html2canvas.js cause not running in browser."
-    );
-  }
-
-  if (typeof html2canvas !== "undefined") {
-    return;
-  }
-
-  var script = document.createElement("script");
-  script.onload = comletion;
-  script.src = "https://html2canvas.hertzen.com/dist/html2canvas.js";
-  document.head.appendChild(script);
-})();
