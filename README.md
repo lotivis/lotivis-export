@@ -2,11 +2,13 @@
 
 Export functionality for [lotivis.js](https://github.com/lukasdanckwerth/lotivis).
 
+
+
 ## Functions
 
 This package provides two functions for downloading rendered images of charts in `SVG` and `PNG` format.
 
-### [svgDownload](./src/screenshot.js)
+#### lotivis.[svgDownload](./src/screenshot.js)(id, filename?, callback?)
 
 Download a `SVG` image of the chart with the given id.
 
@@ -27,7 +29,7 @@ lotivis.svgDownload("my-id", "my-chart{.svg}", () => {
 }).
 ```
 
-### [pngDownload](./src/download.js)
+#### lotivis.[pngDownload](./src/download.js)(id, filename, callback)
 
 ```javascript
 function pngDownload(id, filename, callback)

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>BarChart - Showcase</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .ltv-container {
+        max-width: 1000px;
+        margin: auto;
+      }
+
+      h1 {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ltv-container">
+      <h1>lotivis-bar</h1>
+      <!-- Default -->
+      <div id="bar-chart-1" style="width: 49%; display: inline-block">
+        <!-- Bar Chart 1 Code Here -->
+      </div>
+      <!-- Combine -->
+      <div id="bar-chart-3" style="width: 49%; display: inline-block">
+        <!-- Bar Chart 3 Code Here -->
+      </div>
+      <div id="bar-chart-2" style="width: 49%; display: inline-block">
+        <!-- Bar Chart 2 Code Here -->
+      </div>
+      <div id="bar-chart-4" style="width: 49%; display: inline-block">
+        <!-- Bar Chart 4 Code Here -->
+      </div>
+    </div>
+
+    <script src="../dist/lotivis-bar.js"></script>
+    <script src="./node_modules/lotivis-data/dist/lotivis-data.js"></script>
+    <script src="./node_modules/lotivis-datasets/dist/lotivis-datasets.js"></script>
+
+    <script>
+      let datasets = [
+        {
+          label: "dataset_1",
+          group: "dataset_1",
+          data: [
+            {
+              date: 2000,
+              value: 0.123456789123456789,
+            },
+            {
+              date: 2000,
+              value: 2,
+            },
+            {
+              date: 2001,
+              value: 1,
+            },
+            {
+              date: 2001,
+              value: 3,
+            },
+            {
+              date: 2002,
+              value: 2,
+            },
+            {
+              date: 2002,
+              value: 4,
+            },
+            {
+              date: 2003,
+              value: 3,
+            },
+            {
+              date: 2003,
+              value: 5,
+            },
+            {
+              date: 2004,
+              value: 4,
+            },
+            {
+              date: 2004,
+              value: 6,
+            },
+          ],
+        },
+        {
+          label: "dataset_2",
+          group: "dataset_2, dataset_3",
+          data: [
+            {
+              date: 2000,
+              value: 5,
+            },
+            {
+              date: 2000,
+              value: 8,
+            },
+            {
+              date: 2001,
+              value: 5,
+            },
+            {
+              date: 2001,
+              value: 7,
+            },
+            {
+              date: 2002,
+              value: 5,
+            },
+            {
+              date: 2002,
+              value: 6,
+            },
+            {
+              date: 2003,
+              value: 5,
+            },
+            {
+              date: 2003,
+              value: 5,
+            },
+            {
+              date: 2004,
+              value: 5,
+            },
+            {
+              date: 2004,
+              value: 4,
+            },
+          ],
+        },
+        {
+          label: "dataset_3",
+          group: "dataset_2, dataset_3",
+          data: [
+            {
+              date: 2000,
+              value: 5,
+            },
+            {
+              date: 2000,
+              value: 5,
+            },
+            {
+              date: 2001,
+              value: 4,
+            },
+            {
+              date: 2001,
+              value: 6,
+            },
+            {
+              date: 2002,
+              value: 3,
+            },
+            {
+              date: 2002,
+              value: 7,
+            },
+            {
+              date: 2003,
+              value: 2,
+            },
+            {
+              date: 2003,
+              value: 8,
+            },
+            {
+              date: 2004,
+              value: 1,
+            },
+            {
+              date: 2004,
+              value: 9,
+            },
+          ],
+        },
+      ];
+
+      // lotivis.debug(true);
+
+      let data = lotivis.datasetsToData(datasets);
+      let dc = lotivis.dataController(data);
+
+      lotivis
+        .bar()
+        .selector("#bar-chart-1")
+        .width(600)
+        .height(400)
+        // .title("grouped")
+        .colorScheme(lotivis.colorSchemeLotivis10)
+        .dataController(dc)
+        .run();
+
+      lotivis
+        .bar()
+        .selector("#bar-chart-2")
+        .width(600)
+        .height(400)
+        .labels(true)
+        .title("grouped labels")
+        .colorScheme(lotivis.colorSchemeCategory10)
+        .dataController(dc)
+        .run();
+
+      lotivis
+        .bar()
+        .selector("#bar-chart-3")
+        .width(600)
+        .height(400)
+        .style("combine")
+        .title("combine")
+        .colorScheme(lotivis.colorSchemeTableau10)
+        .dataController(dc)
+        .run();
+
+      lotivis
+        .bar()
+        .selector("#bar-chart-4")
+        .width(600)
+        .height(400)
+        .labels(true)
+        .style("combine")
+        .title("combine labels")
+        .dataController(dc)
+        .run();
+    </script>
+  </body>
+</html>
