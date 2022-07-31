@@ -1,5 +1,5 @@
 // http://bl.ocks.org/Rokotyan/0556f8facbaf344507cdc45dc3622177
-import { downloadURL, element } from "./download.js";
+import { initiateDownloadURL, element } from "./download.js";
 
 function postfix(src, post) {
   return (src = "" + src), src.endsWith(post || "") ? src : src + post;
@@ -142,7 +142,7 @@ export function svgDownload(id, filename = "image", callback = null) {
   let svgRaw = svgString(el);
 
   svgString2Image(svgRaw, 2 * size[0], 2 * size[1], function (dataURL) {
-    downloadURL(dataURL, postfix(filename || "image", ".png"));
+    initiateDownloadURL(dataURL, postfix(filename || "image", ".png"));
     if (callback) callback();
   });
 }
