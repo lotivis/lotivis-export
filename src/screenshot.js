@@ -121,6 +121,7 @@ function svgString2Image(svgString, width, height, callback) {
 function svgOriginalSize(svgElement) {
   if (!svgElement || !svgElement.viewBox)
     return console.log("missing viewBox: " + svgElement);
+  console.log("svgElement", svgElement);
   let vBBV = svgElement.viewBox.baseVal;
   if (vBBV.width !== 0 && vBBV.height !== 0) {
     return [vBBV.width, vBBV.height];
@@ -135,7 +136,7 @@ function svgOriginalSize(svgElement) {
  * @param id The id of the SVG element to create the image of.
  * @param filename The name of the file which is been downloaded.
  */
-export function svgDownload(id, filename, callback = null) {
+export function svgDownload(id, filename = "image", callback = null) {
   let el = element(id);
   let size = svgOriginalSize(el);
   let svgRaw = svgString(el);

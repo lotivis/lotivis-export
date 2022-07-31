@@ -10,27 +10,27 @@ export function element(selector) {
   return el2;
 }
 
-export function downloadURL(url, fname) {
+export function initiateDownloadURL(url, filename) {
   let a = document.createElement("a");
   a.href = url;
-  a.download = fname;
+  a.download = filename;
   a.click();
 }
 
-export function downloadBlob(blob, fname) {
+export function downloadBlob(blob, filename) {
   if (window.navigator.msSaveOrOpenBlob) {
-    window.navigator.msSaveBlob(blob, fname);
+    window.navigator.msSaveBlob(blob, filename);
   } else {
-    downloadURL(URL.createObjectURL(blob), fname);
+    initiateDownloadURL(URL.createObjectURL(blob), filename);
   }
 }
 
-export function pngDownload(id, filename, callback) {
+export function pngDownload(id, filename = "image", callback) {
   html2canvas(element(id), {
     scale: 4,
     logging: true,
   }).then((canvas) => {
-    downloadURL(canvas.toDataURL(), filename);
+    initiateDownloadURL(canvas.toDataURL(), filename);
     if (callback) callback();
   });
 }

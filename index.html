@@ -23,12 +23,14 @@
       <h1>lotivis-bar</h1>
       <!-- Default -->
       <input type="button" onclick="screenshot('bar-chart-1')" value="bar-chart-1"></input>
+      <input type="button" onclick="screenshotRokotyan('bar-1-svg')" value="bar-chart-1 Rokotyan"></input>
       <br>
       <div id="bar-chart-1" >
         <!-- Bar Chart 1 Code Here -->
       </div>
       <!-- Combine -->
       <input type="button" onclick="screenshot('bar-chart-3')" value="bar-chart-3"></input>
+      <input type="button" onclick="screenshotRokotyan('bar-2-svg')" value="bar-chart-3 Rokotyan"></input>
       <br>
       <div id="bar-chart-3" >
         <!-- Bar Chart 3 Code Here -->
@@ -209,10 +211,11 @@
         .run();
 
         function screenshot(id) {
-          console.log("id", id);
-          console.log("id", lotivis);
+          lotivis.pngDownload(id, "" + new Date().getTime());
+        }
 
-          lotivis.pngDownload(id);
+        function screenshotRokotyan(id) {
+          lotivis.pngDownloadRokotyan(id, "" + new Date().getTime());
         }
     </script>
   </body>
