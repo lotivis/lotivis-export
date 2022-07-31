@@ -1,4 +1,4 @@
-# lotivis-export
+# lotivis-export [![Node.js CI Build](https://github.com/lotivis/lotivis-export/actions/workflows/node.js.yml/badge.svg?branch=main)](https://github.com/lotivis/lotivis-export/actions/workflows/node.js.yml)
 
 Export functionality for [lotivis.js](https://github.com/lukasdanckwerth/lotivis).
 
