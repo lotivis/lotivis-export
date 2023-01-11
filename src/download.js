@@ -17,14 +17,6 @@ export function initiateDownloadURL(url, filename) {
   a.click();
 }
 
-export function downloadBlob(blob, filename) {
-  if (window.navigator.msSaveOrOpenBlob) {
-    window.navigator.msSaveBlob(blob, filename);
-  } else {
-    initiateDownloadURL(URL.createObjectURL(blob), filename);
-  }
-}
-
 export function pngDownload(id, filename = "image", callback) {
   html2canvas(element(id), {
     scale: 4,

@@ -136,7 +136,7 @@ function svgOriginalSize(svgElement) {
  * @param id The id of the SVG element to create the image of.
  * @param filename The name of the file which is been downloaded.
  */
-export function svgDownload(id, filename = "image", callback = null) {
+export function pngDownloadRokotyan(id, filename = "image", callback = null) {
   let el = element(id);
   let size = svgOriginalSize(el);
   let svgRaw = svgString(el);
