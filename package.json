@@ -1,6 +1,6 @@
 {
   "name": "lotivis-export",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Export functionality for lotivis.js",
   "author": "Lukas Danckwerth",
   "license": "MIT",
